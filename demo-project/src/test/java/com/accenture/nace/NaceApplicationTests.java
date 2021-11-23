@@ -60,27 +60,6 @@ class NaceApplicationTests {
 		assertEquals(order, service.saveOrder(order));
 	}
 	
-	@Test
-	public void updateBookOrder() {
-		NaceOrder order = new NaceOrder(557, "Karma", "Vidhatha", "fasfas", "12.3", "rvsao", "grg", "oiahl", "pill", "CRUD");
-		NaceOrder newOrder = new NaceOrder(557, "1", "1.2", "2A", "Grains", "kkk", "ppp", "ddd", "lll", "fff");
-		NaceOrder existingOrder = repository.findById(order.getOrderid()).orElse(null);
-		when(repository.findById(any())).thenReturn(Optional.of(null));
-		if(existingOrder!=null) {
-		existingOrder.setCode(newOrder.getCode());
-		existingOrder.setDescription(newOrder.getDescription());
-		existingOrder.setLevel(newOrder.getLevel());
-		existingOrder.setParent(newOrder.getParent());
-		existingOrder.setThisitemincludes(newOrder.getThisitemincludes());
-		existingOrder.setThisitemsalsoincludes(newOrder.getThisitemsalsoincludes());
-		existingOrder.setExcludes(newOrder.getExcludes());
-		existingOrder.setRev4(newOrder.getRev4());
-		existingOrder.setRulings(newOrder.getRulings());
-		when(repository.save(existingOrder)).thenReturn(newOrder);
-		assertEquals(newOrder, existingOrder);
-		}
-		
-	}
 
 
 }
